@@ -1,0 +1,57 @@
+// Employee.java
+public class Employee {
+    private String name;
+    private double salary;
+
+    // Constructor, getters, and setters
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+}
+
+// PayrollCalculator.java
+public class PayrollCalculator {
+    public double calculatePayroll(Employee employee) {
+        // Simple example: Assuming payroll is just the salary
+        return employee.getSalary();
+    }
+}
+
+// PayrollFormatter.java
+public class PayrollFormatter {
+    public String formatPayroll(double payroll) {
+        return "Payroll Amount: $" + payroll;
+    }
+}
+
+// Main.java
+public class Main {
+    public static void main(String[] args) {
+        // Create employee
+        Employee employee = new Employee();
+        employee.setName("John Doe");
+        employee.setSalary(5000.0);
+
+        // Calculate payroll
+        PayrollCalculator calculator = new PayrollCalculator();
+        double payroll = calculator.calculatePayroll(employee);
+
+        // Format and display payroll
+        PayrollFormatter formatter = new PayrollFormatter();
+        String formattedPayroll = formatter.formatPayroll(payroll);
+        System.out.println(formattedPayroll);
+    }
+}
