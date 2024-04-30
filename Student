@@ -1,0 +1,71 @@
+// Student.java
+public class Student {
+    private String name;
+    private double[] internals;
+
+    // Constructor, getters, and setters
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double[] getInternals() {
+        return internals;
+    }
+
+    public void setInternals(double[] internals) {
+        this.internals = internals;
+    }
+}
+
+// MarksCalculator.java
+public class MarksCalculator {
+    public double calculateAverage(double[] internals) {
+        double total = 0.0;
+        for (double mark : internals) {
+            total += mark;
+        }
+        return total / internals.length;
+    }
+}
+
+// GradeFormatter.java
+public class GradeFormatter {
+    public String formatGrade(double average) {
+        if (average >= 90) {
+            return "A";
+        } else if (average >= 80) {
+            return "B";
+        } else if (average >= 70) {
+            return "C";
+        } else if (average >= 60) {
+            return "D";
+        } else {
+            return "F";
+        }
+    }
+}
+
+// Main.java
+public class Main {
+    public static void main(String[] args) {
+        // Create student
+        Student student = new Student();
+        student.setName("Alice");
+        double[] internals = {85, 90, 88}; // Internals marks
+        student.setInternals(internals);
+
+        // Calculate average marks
+        MarksCalculator calculator = new MarksCalculator();
+        double average = calculator.calculateAverage(student.getInternals());
+
+        // Format and display grade
+        GradeFormatter formatter = new GradeFormatter();
+        String grade = formatter.formatGrade(average);
+        System.out.println("Student: " + student.getName() + ", Grade: " + grade);
+    }
+}
